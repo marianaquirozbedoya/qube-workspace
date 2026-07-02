@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  --radius: 1.25rem;
+
+  --background: oklch(0.97 0.01 240);
+  --foreground: oklch(0.22 0.03 250);
+
+  --card: oklch(1 0 0 / 0.55);
+  --card-foreground: oklch(0.22 0.03 250);
+  --popover: oklch(0.98 0.005 240);
+  --popover-foreground: oklch(0.22 0.03 250);
+
+  --primary: oklch(0.32 0.04 250);
+  --primary-foreground: oklch(0.98 0.005 240);
+
+  --secondary: oklch(0.92 0.015 240);
+  --secondary-foreground: oklch(0.28 0.03 250);
+
+  --muted: oklch(0.94 0.012 240);
+  --muted-foreground: oklch(0.52 0.025 250);
+
+  --accent: oklch(0.62 0.045 245);
+  --accent-foreground: oklch(0.98 0.005 240);
+
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0.005 240);
+
+  --border: oklch(0.86 0.015 240);
+  --input: oklch(0.9 0.012 240);
+  --ring: oklch(0.62 0.045 245);
+
+  --steel: oklch(0.62 0.045 245);
+  --steel-deep: oklch(0.48 0.04 250);
+  --slate-deep: oklch(0.32 0.04 250);
+  --glass-border: oklch(1 0 0 / 0.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html, body {
+    font-family: var(--font-sans);
+    color: var(--foreground);
+  }
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 800px at 10% -10%, rgba(122, 146, 168, 0.25), transparent 60%),
+      radial-gradient(1000px 700px at 110% 10%, rgba(96, 125, 139, 0.20), transparent 55%),
+      linear-gradient(135deg, #E6ECF2 0%, #F4F7FA 100%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  code, pre, .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(16px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+      0 10px 30px -12px rgba(44, 62, 80, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(22px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+      0 20px 50px -18px rgba(44, 62, 80, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .glass-subtle {
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(10px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-dark {
+    background: rgba(28, 36, 50, 0.85);
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(120, 160, 200, 0.25);
+    box-shadow:
+      0 0 0 1px rgba(122, 180, 255, 0.08),
+      0 10px 30px -12px rgba(0, 0, 0, 0.4),
+      inset 0 0 30px rgba(80, 140, 220, 0.06);
+  }
+
+  .hover-lift {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                background 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .ring-steel {
+    box-shadow: 0 0 0 1px rgba(122, 146, 168, 0.4),
+                0 0 24px rgba(122, 146, 168, 0.18);
+  }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.anim-fade-up { animation: fade-in-up 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.anim-slide-right { animation: slide-in-right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+.perspective { perspective: 1400px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+.flip-card-inner {
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(122, 146, 168, 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track { background: transparent; }
