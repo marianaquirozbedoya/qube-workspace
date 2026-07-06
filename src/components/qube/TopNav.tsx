@@ -23,7 +23,7 @@ export function TopNav({
         </div>
         <div className="min-w-0">
           <p className="font-display text-sm font-bold tracking-tight text-slate-deep truncate">Qube Hub</p>
-          <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Glass Study OS</p>
+          <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">INTEGRATED PRODUCTIVITY WORKSPACE</p>
         </div>
       </div>
 
